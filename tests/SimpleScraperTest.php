@@ -4,6 +4,7 @@ namespace Ramonztro\SimpleScraper;
 
 use GuzzleHttp\Client;
 use PHPUnit\Framework\TestCase;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Psr7\Response as GuzzleResponse;
 use GuzzleHttp\HandlerStack as GuzzleHandlerStack;
 use GuzzleHttp\Handler\MockHandler as GuzzleMockHandler;
@@ -12,7 +13,7 @@ class SimpleScraperTest extends TestCase
 {
     public function testCreationBadUrl()
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(ConnectException::class);
 
         $ss = new SimpleScraper();
 
