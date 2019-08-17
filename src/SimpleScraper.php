@@ -118,6 +118,6 @@ class SimpleScraper
 			throw new Exception('STATUS CODE: ' . $res->getStatusCode());
 		}
 
-		return $res->getBody();
+		return utf8_decode($res->getBody());
 	}
 }

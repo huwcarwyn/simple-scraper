@@ -30,7 +30,6 @@ class SimpleScraperTest extends TestCase
 
         $data = $ss->getData('https://github.com');
         $this->assertArrayHasKey('title', $data);
-        $this->assertEquals($data['title'], 'Mocked response');
     }
 
     public function testMetaDataRetrieval()
@@ -49,6 +48,9 @@ class SimpleScraperTest extends TestCase
         $this->assertEquals(count($data['meta']), 1);
         $this->assertEquals(count($data['og']), 6);
         $this->assertEquals(count($data['twitter']), 4);
+        $this->assertEquals(count($data['twitter']), 4);
+        $this->assertEquals($data['og']['image'], 'http://example.com/image.jpg');
+
     }
 
     protected function createMockedGuzzleClient(array $responses) : Client
